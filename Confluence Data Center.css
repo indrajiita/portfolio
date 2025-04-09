@@ -1,0 +1,217 @@
+/* This is a CSS stylesheet I developed to make Confluence Data Center spaces look like Confluence Cloud, */
+/* which follows modern design patterns and improves user experience. */
+
+/* This formatting works only with the 3-section layout. */
+
+
+
+/* ==================================== */
+/* ============= GENERAL CSS ============= */
+/* ==================================== */
+
+/* -------------------------------------------MACROS-------------------------------------- */
+
+.code.panel.pdl.conf-macro.output-block code {
+    font-size: 14px !important;
+    font-family: SFMonoMedium, "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier;
+}
+
+/* Fix "info" macro icon */
+.confluence-information-macro .confluence-information-macro-icon {
+    top: 16px;
+    border-radius: 10pt;
+}
+
+/* Override the color of the bottom of the "code block" macro. */
+.syntaxhighlighter.sh-eclipse.nogutter.text,
+.syntaxhighlighter.sh-eclipse.nogutter.python,
+.syntaxhighlighter.sh-eclipse.nogutter.java,
+.syntaxhighlighter.sh-eclipse.nogutter.bash {
+    background-color: #e9f2ff !important;
+}
+
+table.wysiwyg-macro pre {
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    line-height: 1.7;
+}
+
+/* Hide all "br" elements that follow macros and tables. */
+.wiki-content div + br {
+    display: none;
+}
+
+/* Override the color of the line number column in code macro */
+.pdl .codeContent .syntaxhighlighter > table td:first-child {
+    background-color: #f1f2f4 !important;
+}
+
+/* Override the Expand All and Collapse All links above the page tree macro */
+.plugin_pagetree_expandall,
+.plugin_pagetree_collapseall {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #e9f2ff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-align: center;
+    text-decoration: none !important; /* Removes underline */
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Hover transition */
+}
+
+.plugin_pagetree_expandall:hover,
+.plugin_pagetree_collapseall:hover {
+    background-color: #b0cdee;
+}
+
+/* -------------------------------------PAGE APPEARANCE----------------------------------- */
+
+/* Hide Space Shortcuts on the sidebar */
+.quick-links-wrapper, .acs-nav-list {
+    display: none;
+}
+
+.columnLayout.three-with-sidebars .cell.sidebars {
+    width: 0px !important;
+}
+
+.columnLayout.three-with-sidebars .innerCell {
+    width: 80%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .columnLayout.three-with-sidebars .innerCell {
+        width: 100%;
+    }
+}
+
+/* Hide the bullet points for pages that have no child pages */
+.no-children.icon {
+    display: none;
+}
+
+/* -----------------------------------------WIKI CONTENT---------------------------------- */
+
+/* General wiki content */
+.wiki-content {
+    font-family: -applesystem, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, 'Droid Sans', serif;
+    font-size: 16px;
+    padding: 0 0;
+}
+
+/* Images */
+.wiki-content .confluence-embedded-file-wrapper .confluence-embedded-image {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    opacity: 0.85;
+}
+
+.wiki-content pre,
+.wiki-content .cell,
+.wiki-content p,
+.wiki-content tr,
+.wiki-content td,
+.wiki-content th {
+    font-family: -applesystem, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, 'Droid Sans', serif;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+}
+
+/* Override preformatted text */
+.wiki-content pre {
+    font-size: 14px;
+    letter-spacing: -0.7px;
+    word-spacing: -0.7px;
+    line-height: 1.4;
+}
+
+.wiki-content p:not(:only-child) {
+    font-family: -applesystem, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, 'Droid Sans', serif;
+    font-size: 16px;
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+}
+
+/* Override the monospace font format. */
+/* Light Theme */
+code {
+    font-size: 0.875em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 0.7ch;
+    padding-right: 0.7ch;
+    font-family: SFMonoMedium, "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier;
+    font-weight: normal;
+    font-style: normal;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    color: black;
+}
+
+body {
+    font-family: -applesystem, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, 'Droid Sans', serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.74;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ----------------------------------- HEADERS AND TITLES -------------------------------- */
+
+/* Content headers */
+.wiki-content h1,
+.wiki-content h2,
+.wiki-content h3,
+.wiki-content h4,
+.wiki-content h5,
+.wiki-content h6 {
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* The title of an article (page name). */
+#title-text {
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------- LISTS --------------------------------------- */
+
+.wiki-content li {
+    font-family: -applesystem, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, 'Droid Sans', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+}
+
+/* ----------------------------------------- TABLES -------------------------------------- */
+
+.wiki-content table {
+    margin-bottom: 10px;
+}
+
+/* -------------------------------------- LINKS & EMOJIES ------------------------------------ */
+
+/* External resource icon for dark theme version */
+html[data-color-mode="dark"] code {
+    background-color: #3D1E6D;
+    color: #E6CECE;
+    padding: 2px 0.7ch;
+}
+
+/* Adjust all emoji for dark mode */
+html[data-color-mode="dark"] .emoticon {
+    border-radius: 50%;
+    padding: 4px;
+}
