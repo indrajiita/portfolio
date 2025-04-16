@@ -1,6 +1,6 @@
 **Disclaimer**
 
-- The style guide was created in Confluence. I tried to replicate its formatting using GitHub features, but some elements may not appear as intended.
+- The style guide was originally created in Confluence. I tried to replicate its formatting using GitHub features, but some elements may not appear as intended.
 - I am publishing only an extract of the guide. Topics that I have excluded are marked with an asterisk ( * ) in the Table of Contents.
 
 # Writing Style Guide
