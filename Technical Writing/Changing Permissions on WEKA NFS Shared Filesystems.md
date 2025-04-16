@@ -1,43 +1,63 @@
-# Scope
-This procedure outlines the steps required to change the NFS permissions on a WEKA filesystem in an HPC cluster, allowing for access from non-cluster nodes (for example, cloud instances).
+# Changing Permissions on WEKA NFS Shared Filesystems
 
-# Approval
+## Table of Contents
+
+- [Scope](#scope)
+- [Approval](#approval)
+- [Definitions & Acronyms](#definitions--acronyms)
+- [Responsibilities](#responsibilities)
+- [Prerequisites](#prerequisites)
+- [Procedure](#procedure)
+  - [Justification](#justification)
+  - [Communication Plan](#communication-plan)
+  - [Implementation Plan](#implementation-plan)
+    - [Method 1: Using the GUI](#method-1-using-the-gui)
+    - [Method 2: Using the CLI](#method-2-using-the-cli)
+- [Backup Plan](#backup-plan)
+- [References](#references)
+- [Training](#training)
+- [Attachments](#attachments)
+- [Additional Details](#additional-details)
+
+## Scope
+This standard operating procedure outlines the steps required to change the NFS permissions on a WEKA filesystem in an HPC cluster, allowing for access from non-cluster nodes (for example, cloud instances).
+
+## Approval
 | Role         | Person Responsible |
 |-------------|-------------------|
-| **Author**  | John Doe  |
-| **Reviewer** | Andrei Orlov |
+| **Author**  | Andrei Orlov  |
+| **Reviewer** | John Doe |
 | **Approver** | Jane Smith |
 
-# Definitions & Acronyms
+## Definitions & Acronyms
 | Term/Acronym | Definition |
 |--------------|------------|
 | GUI |  Graphical User Interface. A visual interface that allows users to interact with software using graphical elements like buttons and menus. |
-| CLI |  CLI | Command-Line Interface. A text-based interface that lets users interact with software by typing commands. |
+| CLI | Command-Line Interface. A text-based interface that lets users interact with software by typing commands. |
 | ADM Account |  An administrator-level user account with elevated permissions for managing system settings. |
 
-# Responsibilities
+## Responsibilities
 The HPC Support Team performs this procedure, periodically reviews and updates it as necessary, and maintains proper support documentation. Specific responsibilities are defined in the table below.
 
 | Role/Group | Responsibilities |
 |------------|-----------------|
 | HPC Support Engineers | Perform the procedure. |
-| Technical Writer | Review and maintain documentation. |
+| Technical Writer | Review the SOP and ensure it is kept up to date. |
 
-# Prerequisites
+## Prerequisites
 N/A
 
-# Procedure
+## Procedure
 
-## Justification
+### Justification
 It may be necessary to grant access to shared filesystems on non-cluster nodes. By default, the NFS protocol restricts access to unknown hosts or networks, blocking these systems from mounting shares. This process ensures that the necessary permissions are granted.
 
-## Communication Plan
-Not required as the process does not involve service interruption.
+### Communication Plan
+Not required because the process does not involve service interruption.
 
-## Implementation Plan
-There are two methods to modify permissions in WEKA: the **GUI** and the **CLI**.
+### Implementation Plan
 
-### Method 1: Using the GUI
+#### Method 1: Using the GUI
 1. Access the WEKA GUI: [http://weka.sample.com:14001/ui](http://weka.sample.com:14001/ui).
 2. Log in with your ADM account.
 3. Go to **Manage > Protocols**.<br><img src="https://github.com/indrajiita/test/blob/main/Technical%20Writing/media1/Weka1.png?raw=true" width="400">
@@ -48,7 +68,7 @@ There are two methods to modify permissions in WEKA: the **GUI** and the **CLI**
 8. Click **Save**.
 9. Verify that the changes have been applied by reviewing the updated list of clients.
 
-### Method 2: Using the CLI
+#### Method 2: Using the CLI
 1. SSH into any WEKA node with an ADM account:
    ```bash
    ssh sample-weka-node-001
@@ -77,14 +97,14 @@ There are two methods to modify permissions in WEKA: the **GUI** and the **CLI**
    weka nfs client-group | grep client-ip
    ```
 
-# Backup Plan
-Not required as the process does not involve service interruption.
+## Backup Plan
+Not required because the process does not involve service interruption.
 
-# References
+## References
 N/A
 
-# Training
-All administrators must receive the appropriate level of training required to change permissions on WEKA NFS shared filesystems in accordance with their assigned roles.
+## Training
+All administrators must receive the appropriate level of training required to change permissions on WEKA NFS shared filesystems under their assigned roles.
 
 # Attachments
 N/A
