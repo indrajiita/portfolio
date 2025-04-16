@@ -1,5 +1,4 @@
 # CryoSPARC Administrator Guide
----
 
 ## Table of Contents
 
