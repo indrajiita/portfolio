@@ -1,6 +1,6 @@
 # DataGrip Quick Start Guide
 
-## Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Before you start](#before-you-start)
