@@ -1,6 +1,6 @@
 # Copying PNG Images From Local to Server via SSH
 
-## Content
+## Table of Contents
 
 - [What is SSH?](#what-is-ssh)
 - [Limitations](#limitations)
