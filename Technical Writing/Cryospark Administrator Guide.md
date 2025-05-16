@@ -1,5 +1,18 @@
 # CryoSPARC Administrator Guide
----
+
+## Table of Contents
+
+  - [Scope](#scope)
+  - [Environment](#environment)
+  - [Procedures](#procedures)
+    - [Renew SSL Certificate](#renew-ssl-certificate)
+    - [Restart CryoSPARC](#restart-cryosparc)
+    - [Backup CryoSPARC Database](#backup-cryosparc-database)
+    - [Maintenance Mode](#maintenance-mode)
+    - [Full Shutdown](#full-shutdown)
+    - [Manual Update](#manual-update)
+    - [Install Manual Cluster Worker Updates](#install-manual-cluster-worker-updates)
+    - [Create User via Web GUI](#create-user-via-web-gui)
 
 ## Scope
 
@@ -8,7 +21,7 @@ This document provides guidelines for updating, restarting, and configuring Cryo
 
 ## Environment
 
-- **Location**: On-premises (worker) / Cloud (server)
+- **Location**: On-prem (worker)/Cloud (server)
 - **Deployment Type**: Manual
 - **Cloud Instance**: i-0123456789abcdef (cryosparc-prod)
 - **Access**:
@@ -21,7 +34,7 @@ This document provides guidelines for updating, restarting, and configuring Cryo
 ### Renew SSL Certificate
 
 #### Prerequisites
-Review your internal guide on requesting new SSL certificates.
+Review the internal guide on requesting new SSL certificates.
 
 #### Steps
 1. SSH into the server (e.g., `ssh admin@cryo-hpc-node1`).
@@ -31,38 +44,44 @@ Review your internal guide on requesting new SSL certificates.
 
 ### Restart CryoSPARC
 
-Commands (run as root):
+1. Restart CryoSPARC by running the following commands as root:
 ```bash
 systemctl stop cryosparc-supervisor.service
 systemctl start cryosparc-supervisor.service
 systemctl status cryosparc-supervisor.service
 ```
-Check services:
+2. Verify the services:
 ```bash
 /apps/cryosparc_master/bin/cryosparcm status
 ```
 
 ### Backup CryoSPARC Database
 
-Use `mongodump` via the CryoSPARC CLI:
+1. Use `mongodump` via the CryoSPARC CLI:
 ```bash
 cryosparcm backup --dir=/backup/location --file=backup_filename.archive
 ```
-
-Check CRYOSPARC_DB_PATH in `config.sh` for the default path.
+2. Check CRYOSPARC_DB_PATH in `config.sh` for the default path.
 
 ### Maintenance Mode
 
-Enable to prevent new job submissions:
+Maintenance mode prevents new job submissions.
+
+To enable the maintenance mode, run the following commands:
 ```bash
 cryosparcm maintenancemode on
 cryosparcm maintenancemode status
-cryosparcm maintenancemode off
 ```
 
-**Note:** SLURM job failure may indicate a bad worker path; verify via the web UI settings.
+To disable the maintenance mode, run the following commands:
+```bash
+cryosparcm maintenancemode off
+cryosparcm maintenancemode status
+```
 
-### Complete Shutdown
+**Note:** SLURM job failure may indicate a bad worker path; verify the settings via the web UI.
+
+### Full Shutdown
 
 1. Stop the service:
 ```bash
@@ -80,9 +99,9 @@ ps -weo pid,ppid,start,cmd | grep -E 'cryosparc|mongo' | grep -v grep
 **Before Update:**
 - Notify users.
 - Enable maintenance mode.
-- Wait for or kill active jobs.
+- Wait for active jobs to complete, or terminate them manually if needed.
 - Backup the database.
-- Perform full shutdown.
+- Perform a full shutdown.
 
 **Check for updates:**
 ```bash
@@ -95,7 +114,6 @@ cryosparcm update --list
 cd /apps/cryosparc_master/
 /apps/cryosparc_master/bin/cryosparcm update
 ```
-
 
 ### Install Manual Cluster Worker Updates
 
@@ -118,21 +136,9 @@ systemctl start cryosparc-supervisor.service
 cryosparcm maintenancemode off
 ```
 
-### Create User via CLI
-
-Create user:
-```bash
-cryosparcm createuser \
-  --email "user@example.com" \
-  --username "username" \
-  --firstname "First" \
-  --lastname "Last" \
-  --password "password"
-```
-
 ### Create User via Web GUI
 
-1. Click the key icon.
+1. Click <img src="https://github.com/indrajiita/portfolio/blob/main/Technical%20Writing/media1/key_icon.png?raw=true" width="17">.
 2. Navigate to **User Management**.
-3. Fill out the form and submit.
+3. Fill out the form and submit it.
 4. Provide the user with the registration token.
