@@ -60,10 +60,10 @@ Not required because the process does not involve service interruption.
 #### Method 1: Using the GUI
 1. Access the WEKA GUI: [http://weka.sample.com:14001/ui](http://weka.sample.com:14001/ui).
 2. Log in with your ADM account.
-3. Go to **Manage > Protocols**.<br><img src="https://github.com/indrajiita/test/blob/main/Technical%20Writing/media1/Weka1.png?raw=true" width="400">
-4. On the sidebar, select **NFS** and click **Permissions**.<br><img src="https://github.com/indrajiita/test/blob/main/Technical%20Writing/media1/Weka2.png?raw=true" width="400">
+3. Go to **Manage > Protocols**.<br><img src="https://github.com/indrajiita/portfolio/blob/main/Technical%20Writing/media1/Weka1.png?raw=true" width="400">
+4. On the sidebar, select **NFS** and click **Permissions**.<br><img src="https://github.com/indrajiita/portfolio/blob/main/Technical%20Writing/media1/Weka2.png?raw=true" width="400">
 5. Since clients are not separated into groups, all clients are listed under the **sample-cluster** group.
-6. Click on either **Add DNS** or **Add IP**, depending on your requirements.<br><img src="https://github.com/indrajiita/test/blob/main/Technical%20Writing/media1/Weka3.png?raw=true" width="200">
+6. Click on either **Add DNS** or **Add IP**, depending on your requirements.<br><img src="https://github.com/indrajiita/portfolio/blob/main/Technical%20Writing/media1/Weka3.png?raw=true" width="200">
 7. Complete the form with the appropriate **hostname or IP address**. Ensure the correct **network mask** is set if adding a network.
 8. Click **Save**.
 9. Verify that the changes have been applied by reviewing the updated list of clients.
